@@ -82,10 +82,8 @@ def main():
         st.image(uploaded_file,caption="Uploaded Image.",
                 use_column_width=True)
         
-        generated_image = generate_image(uploaded_file.name,color_input)
-        st.image(generated_image,caption="Generated Image.", use_column_width=True)
-    
-    
+        
+    #st.image(generated_image,caption="Generated Image.", use_column_width=True)
     uploaded_logo = st.file_uploader("Upload the logo", type="jpg")
     #prompt_input = st.text_input("Enter the prompt:")
     #st.write("You entered:", prompt_input)
@@ -107,7 +105,7 @@ def main():
         output_path = "result.jpg"
         new_image_size = (400, 300)  # Adjust these dimensions as needed
         logo_size = (200,150)
-        image = generated_image
+        image = generate_image(uploaded_file.name,color_input)
         logo_path = uploaded_logo.name
         create_frame_with_resized_image(frame_size, image,logo_path, output_path, new_image_size,logo_size,punchline_input,button_input,button_color_input)
         ad_template = Image.open(output_path)
