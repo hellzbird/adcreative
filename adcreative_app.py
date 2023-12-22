@@ -14,7 +14,7 @@ def generate_image(url,color):
     pipe.scheduler = EulerAncestralDiscreteScheduler.from_config(pipe.scheduler.config)
     image = download_image(url)
     prompt = f"create a similar image, change the object color to {color}"
-    images = pipe(prompt, image=image, num_inference_steps=20, image_guidance_scale=1).images
+    images = pipe(prompt, image=image, num_inference_steps=10, image_guidance_scale=1).images
     generated_image = images[0].save("generated_image.jpg")
     return images[0]
 
